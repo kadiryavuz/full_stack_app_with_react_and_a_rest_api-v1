@@ -121,18 +121,7 @@ class CourseDetail extends React.Component {
                   <li className="course--stats--list--item">
                     <h4>Materials Needed</h4>
                     <Markdown input={courseDetail.materialsNeeded} />
-                    {/* <ul>
-                      <li>1/2 x 3/4 inch parting strip</li>
-                      <li>1 x 2 common pine</li>
-                      <li>1 x 4 common pine</li>
-                      <li>1 x 10 common pine</li>
-                      <li>1/4 inch thick lauan plywood</li>
-                      <li>Finishing Nails</li>
-                      <li>Sandpaper</li>
-                      <li>Wood Glue</li>
-                      <li>Wood Filler</li>
-                      <li>Minwax Oil Based Polyurethane</li>
-                    </ul> */}
+                    
                   </li>
                 </ul>
               </div>

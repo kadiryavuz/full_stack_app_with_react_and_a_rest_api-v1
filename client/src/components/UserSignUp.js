@@ -32,8 +32,6 @@ class UserSignUp extends React.Component {
     e.preventDefault();
 
     const { userContext } = this.props;
-    // const { from } = this.props.location.state || { from: { pathname: "/" } };
-    // const { emailAddress, password } = this.state;
 
     this.setState({
       errors: [],
@@ -63,13 +61,6 @@ class UserSignUp extends React.Component {
           } else {
             userContext.auth.signIn(emailAddress, password).then(() => {
               this.props.history.push("/");
-              //   if (!user) {
-              //     this.setState(() => {
-              //       return { errors: ["Unsuccessful sign-in attempt!"] };
-              //     });
-              //   } else {
-              //     this.props.history.push(from);
-              //   }
             });
           }
         })
@@ -78,24 +69,6 @@ class UserSignUp extends React.Component {
           this.props.history.push("/error");
         });
     }
-    // const { userContext } = this.props;
-    // const { from } = this.props.location.state || { from: { pathname: "/" } };
-    // const { emailAddress, password } = this.state;
-
-    // userContext.auth
-    //   .signIn(emailAddress, password)
-    //   .then((user) => {
-    //     if (!user) {
-    //       this.setState(() => {
-    //         return { errors: ["Unsuccessful sign-in attempt!"] };
-    //       });
-    //     } else {
-    //       this.props.history.push(from);
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     this.props.history.push("/error");
-    //   });
   };
 
   render() {

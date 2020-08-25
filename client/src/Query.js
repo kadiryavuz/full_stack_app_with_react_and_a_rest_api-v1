@@ -11,7 +11,6 @@ export default class Query {
   ) => {
     const base = "http://localhost:5000/api";
     const reqUrl = base + path;
-    // const APP_SALT = process.env.REACT_APP_SALT_KEY;
     const options = {
       method,
       headers: {

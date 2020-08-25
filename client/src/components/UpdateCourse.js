@@ -53,19 +53,6 @@ class UpdateCourse extends React.Component {
   };
 
   componentDidMount() {
-    //receiving course from the redirect state
-    // const courseToUpdate = this.props.location.state
-    //   ? this.props.location.state.subjectCourse
-    //   : {};
-    // if (courseToUpdate) {
-    //   this.setState({
-    //     title: courseToUpdate.title,
-    //     description: courseToUpdate.description,
-    //     estimatedTime: courseToUpdate.estimatedTime,
-    //     materialsNeeded: courseToUpdate.materialsNeeded,
-    //     id: courseToUpdate.id,
-    //   });
-    // }
 
     const {
       match: { params },
