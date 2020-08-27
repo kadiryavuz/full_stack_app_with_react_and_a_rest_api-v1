@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import Query from "../Query";
-
+import { withUserContext } from "../context/UserState";
 import ValidationErrors from "./ValidationErrors";
 
 class UpdateCourse extends React.Component {
@@ -11,7 +11,7 @@ class UpdateCourse extends React.Component {
     description: "",
     estimatedTime: "",
     materialsNeeded: "",
-    id: "",
+    id: -1,
   };
 
   query = new Query();
@@ -66,6 +66,10 @@ class UpdateCourse extends React.Component {
       match: { params },
     } = this.props;
 
+    const {
+      userContext: { authenticatedUser },
+    } = this.props;
+
     fetch(`http://localhost:5000/api/courses/${params.id}`)
       .then((response) => {
         if (response.status === 200) {
@@ -74,6 +78,17 @@ class UpdateCourse extends React.Component {
 
         if (response.status === 500) {
           this.props.history.push("/notFound");
+        }
+      })
+      .then(course => {
+        //after fetching, if course is owned by the auth user
+        //then continue
+        //else
+        //redirect user to forbidden route
+        if(course.userId === authenticatedUser.id) {
+          return course;
+        } else {
+          this.props.history.push('/forbidden');
         }
       })
       .then((course) => {
@@ -98,12 +113,13 @@ class UpdateCourse extends React.Component {
       title,
       description,
       estimatedTime,
-      materialsNeeded,
+      materialsNeeded
     } = this.state;
 
     const {
       match: { params },
     } = this.props;
+
     return (
       <div className="bounds course--detail">
         <h1>Update Course</h1>
@@ -187,4 +203,4 @@ class UpdateCourse extends React.Component {
   }
 }
 
-export default UpdateCourse;
+export default withUserContext(UpdateCourse);
