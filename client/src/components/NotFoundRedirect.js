@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 
 const NotFoundRedirect = () => {
     return(
-        <Redirect to="/notFound" />
+        <Redirect to="/notfound" />
     );
 }
 

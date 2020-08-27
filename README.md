@@ -22,7 +22,7 @@ run *npm start* to start local dev => it will run on http://localhost:3000/
 
 ## EXTRA CREDIT
 1. Error & NotFound & Forbidden cases are handled by the following stateless components to improve UX
-NotFound: */notFound* => Route and 400 cases - Display a message letting the user know that the requested page can't be found.
+NotFound: */notfound* => Route and 400 cases - Display a message letting the user know that the requested page can't be found.
 Forbidden: */forbidden* => Route and 403 cases - Displays a message letting the user know that they can't access the requested page.
 UnhandledError: */error* => Route and 500 cases - Display a message letting the user know that an unexpected error has occurred.
 

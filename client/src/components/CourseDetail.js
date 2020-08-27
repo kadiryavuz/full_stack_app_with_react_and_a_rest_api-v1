@@ -26,7 +26,7 @@ class CourseDetail extends React.Component {
 
         if (response.status === 500) {
             
-          this.props.history.push("/notFound");
+          this.props.history.push("/notfound");
         }
       })
       .then((course) => {

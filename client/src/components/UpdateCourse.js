@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Query from "../Query";
 import { withUserContext } from "../context/UserState";
 import ValidationErrors from "./ValidationErrors";
@@ -77,7 +77,7 @@ class UpdateCourse extends React.Component {
         }
 
         if (response.status === 500) {
-          this.props.history.push("/notFound");
+          this.props.history.push("/notfound");
         }
       })
       .then(course => {
@@ -92,6 +92,7 @@ class UpdateCourse extends React.Component {
         }
       })
       .then((course) => {
+        //if no course fetched, then 500 will be thrown by the server to be redirected to error page in the catch block
         if (course) {
           this.setState({
             title: course.title,
@@ -100,7 +101,7 @@ class UpdateCourse extends React.Component {
             materialsNeeded: course.materialsNeeded,
             id: course.id,
           });
-        }
+        } 
       })
       .catch((err) => {
         this.props.history.push("/error");
