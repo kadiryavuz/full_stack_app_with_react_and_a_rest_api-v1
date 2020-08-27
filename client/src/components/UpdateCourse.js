@@ -37,6 +37,10 @@ class UpdateCourse extends React.Component {
       materialsNeeded,
     } = this.state;
 
+    const {
+      match: { params },
+    } = this.props;
+
     this.query
       .updateCourse({ id, title, description, estimatedTime, materialsNeeded })
       .then((data) => {
@@ -44,6 +48,10 @@ class UpdateCourse extends React.Component {
           this.setState({ errors: data.errors });
         } else if(data.code === 403) {
           this.props.history.push("/forbidden");
+        } else if(data.code === 500) {
+          this.props.history.push("/error");
+        } else {
+          this.props.history.push(`/courses/${params.id}`);
         }
       })
       .catch((err) => {
@@ -92,6 +100,10 @@ class UpdateCourse extends React.Component {
       estimatedTime,
       materialsNeeded,
     } = this.state;
+
+    const {
+      match: { params },
+    } = this.props;
     return (
       <div className="bounds course--detail">
         <h1>Update Course</h1>
@@ -164,7 +176,7 @@ class UpdateCourse extends React.Component {
               <button className="button" type="submit">
                 Update Course
               </button>
-              <Link className="button button-secondary" to="/">
+              <Link className="button button-secondary" to={`/courses/${params.id}`}>
                 Cancel
               </Link>
             </div>

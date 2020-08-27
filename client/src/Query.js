@@ -94,15 +94,10 @@ export default class Query {
     if (response.status === 204) {
       return [];
     }
-    else if (response.status === 400) {
+    else if (response.status === 400 || response.status === 403 || response.status === 500) {
       return response.json().then(data => {
         return data;
       });
-    }
-    else if( response.status === 403) {
-        return response.json().then(data => {
-            return data;
-        })
     }
     else {
       throw new Error();

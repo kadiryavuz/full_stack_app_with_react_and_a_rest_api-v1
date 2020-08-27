@@ -137,7 +137,7 @@ router.put(
       } else {
         res
           .status(500)
-          .json({ message: "Something went wrong while updating Course" });
+          .json({ code: 500, message: "Something went wrong while updating Course" });
       }
     }
   }
