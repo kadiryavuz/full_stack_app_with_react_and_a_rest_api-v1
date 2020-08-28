@@ -38,8 +38,15 @@ class UserSignIn extends React.Component {
           this.props.history.push(from);
         }
       })
-      .catch((error) => {
-        this.props.history.push('/error');
+      .catch((err) => {
+        console.log("ERROR: ", err.message);
+        this.props.history.push({
+          pathname: '/error',
+          state: {error: { 
+            code: (err.message.indexOf(':') > -1 ? err.message.split(':')[0] : ""),
+            message: (err.message.indexOf(':') > -1 ? err.message.split(':')[1] : err.message)
+          }}
+        });
       });
   };
 

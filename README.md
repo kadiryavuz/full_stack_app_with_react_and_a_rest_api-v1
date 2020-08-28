@@ -1,6 +1,7 @@
 # full_stack_app_with_react_and_a_rest_api-v1
 
 ## SETUP
+NOTE: While setting up the project on your local, please follow below setup steps in order.
 # API Setup
 cd into /api folder from the root directorey of the project
 run *npm install* to install the dependencies

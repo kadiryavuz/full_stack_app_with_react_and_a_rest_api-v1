@@ -74,6 +74,9 @@ class CourseDetail extends React.Component {
               {authenticatedUser &&
               authenticatedUser.id === courseDetail.userId ? (
                 <span>
+                  {/* course update handles fetching regarding course statefully
+                  just keeping as a sample to describe how we can pass related course to update component
+                  if we have stateless scenario */}
                   <Link
                     className="button"
                     to={{

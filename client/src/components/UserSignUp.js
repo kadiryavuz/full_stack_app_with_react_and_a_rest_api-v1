@@ -36,7 +36,7 @@ class UserSignUp extends React.Component {
     this.setState({
       errors: [],
     });
-    console.error("onsubmit: ", e.target);
+    
     const {
       firstName,
       lastName,
