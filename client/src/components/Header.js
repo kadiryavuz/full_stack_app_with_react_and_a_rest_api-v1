@@ -11,7 +11,7 @@ const Header = () => {
         <nav>
           {auth.authenticatedUser ? (
             <React.Fragment>
-                <span>Welcome, {auth.authenticatedUser.firstName}!</span>
+                <span className="">Welcome {auth.authenticatedUser.firstName} {auth.authenticatedUser.lastName}!</span>
                 <Link to="/signout">Sign Out</Link>
             </React.Fragment>
           ) : (
